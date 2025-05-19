@@ -1,12 +1,12 @@
 from typing import List, Dict, Any
 from cachetools import TTLCache
 
-from services.bedrock import BedrockClient
-from services.dynamo import DynamoRepository
-from services.embedding import Embedding
+from src.services.bedrock import BedrockClient
+from src.services.repositories.documents_repository import DocumentRepository
+from src.services.embedding import Embedding
 
 class AskQuestion:
-    def __init__(self, dynamo: DynamoRepository, embedding: Embedding, bedrock: BedrockClient):
+    def __init__(self, dynamo: DocumentRepository, embedding: Embedding, bedrock: BedrockClient):
         self.embedding = embedding
         self.dynamo = dynamo
         self.bedrock = bedrock

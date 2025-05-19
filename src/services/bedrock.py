@@ -19,6 +19,7 @@ class BedrockClient:
             {
                 "role": "user",
                 "content": [{"text": f"{question}"}],
+                
             }
         ]
 
@@ -27,10 +28,16 @@ class BedrockClient:
             "temperature": 0.3,
             "topP": 0.9
         }
+        
+        guardrailConfig = {
+            "guardrailIdentifier": "qnptkxobdbzm",
+            "guardrailVersion": "1"
+        }
 
         response = self.bedrock.converse(
             modelId="meta.llama3-8b-instruct-v1:0",
             messages=conversation,
+            guardrailConfig=guardrailConfig,
             inferenceConfig=inference_config
         )
 

@@ -1,7 +1,7 @@
 import os
 
-from services.dynamo import Dynamo
-from services.embedding import Embedding
+from services.repositories.documents_repository import Dynamo
+from src.services.embedding import Embedding
 
 class DocumentLoader:    
     def store_doc_from_file(self, filename: str, topic: str, dynamo: Dynamo):
