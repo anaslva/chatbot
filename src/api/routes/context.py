@@ -8,7 +8,7 @@ router = APIRouter(
 class AddContextRequest(BaseModel):
     context: str = Field(..., description="Nome do contexto a ser adicionado")
     id: str = Field(..., example="pix", description="Identificador do contexto")
-    description: str = Field(..., examples="Tudo sobre Pix, QR Code, callbacks", description="Descrição do contexto")
+    description: str = Field(..., example="Tudo sobre Pix, QR Code, callbacks", description="Descrição do contexto")
 
 @router.post(path="/add", summary="Cadastro de novo contexto")
 def add_context(
